@@ -5,17 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="images/icon-512.png">
-    <title>PWA Sample</title>
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
 </head>
 <body>
-    <input type="button" value="おみくじを引く！" onclick="omikuji();" id="playBtn">
-    <div>
-        <div id="msgHeading" style="opacity: 0;">おみくじの結果は........</div>
-        <div id="msg1"></div>
-        <div id="msg2"></div>
-    </div>
-    <input type="button" value="リセット！" id="resetBtn" onclick="reset();" disabled="disabled">
+    <section class="hero">
+      <div class="container is-fullwidth">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              NFC Reader
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="columns is-mobile" id="message"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="columns is-mobile">
+          <div class="column is-3">State</div>
+          <div class="column is-3" id="status"></div>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section>
+      <div class="container">
+        <div class="row" id="result">
+          <table class="table is-bordered is-fullwidth">
+            <tbody>
+              <tr>
+                <td>type</td>
+                <td id="type"></td>
+              </tr>
+              <tr>
+                <td>Serial Number</td>
+                <td id="serialnumber"></td>
+              </tr>
+              <tr>
+                <td>timeStamp</td>
+                <td id="timeStamp"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener("load", function() {
